@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Projet DHTML</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <a href="../homepage.html" class="back-link">← Retour à l'accueil</a>
+
+    <div class="login-container">
+        <div class="logo-header">
+            <div class="logo">N2MF</div>
+            <div class="devise">CODE4WARD</div>
+        </div>
+
+        <h1 class="form-title">Créer un compte</h1>
+
+        <div class="success-message" id="successMessage">
+            Compte créé avec succès !
+        </div>
+
+        <form id="loginForm">
+            <label for="nom">Entrez votre nom</label>
+            <input type="text" id="nom" name="nom" required>
+            <div class="error-message" id="nomError">Le nom est requis</div>
+
+            <label for="email">Entrez votre adresse email</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error-message" id="emailError">Email invalide</div>
+
+            <label for="motdepasse">Choisissez un mot de passe</label>
+            <input type="password" id="motdepasse" name="motdepasse" required minlength="6">
+            <div class="error-message" id="motdepasseError">Le mot de passe doit contenir au moins 6 caractères</div>
+
+            <label for="motdepasse2">Confirmez le mot de passe</label>
+            <input type="password" id="motdepasse2" name="motdepasse2" required>
+            <div class="error-message" id="motdepasse2Error">Les mots de passe ne correspondent pas</div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" name="choix" id="choix">
+                <label for="choix">Enregistrer votre mot de passe</label>
+            </div>
+
+            <input type="submit" value="Créer un compte">
+        </form>
+    </div>
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image - Projet DHTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/image.css">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-darkness/jquery-ui.css">
+</head>
+
+<body>
+    <!-- En tête -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">N2MF</div>
+            <div class="devise">CODE4WARD</div>
+        </div>
+        <h1>Redimensionnement d'Image</h1>
+        <a href="../homepage.html" class="login-btn">Accueil</a>
+    </header>
+
+    <!-- Zone d'affichage -->
+    <div class="container">
+        <nav>
+            <a href="cramer.html">Cramer</a>
+            <a href="image.html" class="active">Image</a>
+            <a href="panneau.html">Panneau</a>
+            <a href="datatable.html">DataTable</a>
+        </nav>
+
+        <main>
+            <div id="affichage">
+                <h1>Contrôles de Redimensionnement</h1>
+                <!-- Zone de contrôle -->
+                <div class="control-panel">
+                    <div class="file-controls">
+                        <label for="image-upload" class="upload-btn">
+                            📁 Importer une image
+                        </label>
+                        <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                        <button id="reset-btn" class="reset-btn">🔄 Réinitialiser</button>
+                    </div>
+
+                    <!-- Contrôles des dimensions -->
+                    <div class="dimension-controls">
+                        <div class="slider-group">
+                            <label for="width-slider">Largeur :</label>
+                            <div class="slider-container">
+                                <div id="width-slider" class="dimension-slider"></div>
+                                <input type="number" id="width-input" min="50" max="800" value="300">
+                                <span class="unit">px</span>
+                            </div>
+                        </div>
+
+                        <div class="slider-group">
+                            <label for="height-slider">Hauteur :</label>
+                            <div class="slider-container">
+                                <div id="height-slider" class="dimension-slider"></div>
+                                <input type="number" id="height-input" min="50" max="600" value="200">
+                                <span class="unit">px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone d'affichage de l'image -->
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img id="dynamic-image"
+                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMUExQTJFIiBzdHJva2U9IiMwMEZGODgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iMTAgNSIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjMDBGRjg4IiBmaWxsLW9wYWNpdHk9IjAuMiIvPgo8cGF0aCBkPSJNMTMwIDg1TDE3MCA4NUwxNTAgMTE1WiIgZmlsbD0iIzAwRkY4OCIvPgo8dGV4dCB4PSIxNTAiIHk9IjE0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjQ0JENUUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZSBwYXIgZMOpZmF1dDwvdGV4dD4KPHN2Zz4K"
+                            alt="Image par défaut">
+                    </div>
+                </div>
+
+                <!-- Informations sur l'image -->
+                <div class="image-info">
+                    <div class="info-item">
+                        <span class="info-label">Dimensions :</span>
+                        <span id="current-dimensions">300 × 200 px</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Ratio :</span>
+                        <span id="current-ratio">1.50</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-title">AUTEURS</div>
+        <div class="team-info">
+            <div class="member">
+                <div class="member-name">NIEKENA</div>
+                <div class="member-matricule">3734</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@niekena.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">NAJORO</div>
+                <div class="member-matricule">3674</div>
+                <div class="member-role"> Designer UI/UX</div>
+                <div class="member-facebook">@najoro.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">MALALA</div>
+                <div class="member-matricule">3735</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@malala.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">FABRICE</div>
+                <div class="member-matricule">3649</div>
+                <div class="member-role">Chef de projet</div>
+                <div class="member-facebook">@fabrice.fb</div>
+            </div>
+        </div>
+        <div class="copyright">© 2025</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="../js/image.js"></script>
+
+</body>
+
+</html>

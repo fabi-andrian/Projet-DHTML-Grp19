@@ -1,0 +1,586 @@
+/* ===== DATATABLE STYLES - Extension du style principal ===== */
+
+/* Lien actif dans la navigation */
+nav a.active {
+    background: rgba(0, 255, 136, 0.15);
+    color: #00ff88;
+    border-color: rgba(0, 255, 136, 0.4);
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+}
+
+nav a.active::after {
+    height: 100%;
+}
+
+/* Container principal DataTable */
+.datatable-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: #1a202c;
+}
+
+/* Section contrôles */
+.controls-section {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.controls-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00ff88, #00cc66, #004d1a, #00ff88);
+    background-size: 300% 100%;
+    animation: shimmerDark 3s ease-in-out infinite;
+}
+
+.controls-section h2 {
+    color: #f7fafc;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 255, 136, 0.3);
+}
+
+.controls-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Boutons de contrôle */
+.btn-primary,
+.btn-secondary,
+.btn-accent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.2) 0%, rgba(0, 204, 102, 0.3) 100%);
+    color: #00ff88;
+    border: 2px solid rgba(0, 255, 136, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+}
+
+.btn-secondary {
+    background: rgba(45, 55, 72, 0.8);
+    color: #e2e8f0;
+    border: 2px solid rgba(160, 174, 192, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.2) 0%, rgba(0, 86, 179, 0.3) 100%);
+    color: #007bff;
+    border: 2px solid rgba(0, 123, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.3) 0%, rgba(0, 204, 102, 0.4) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(45, 55, 72, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-accent:hover {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.3) 0%, rgba(0, 86, 179, 0.4) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+/* Section tableau */
+.table-section {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.table-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00ff88, #00cc66, #004d1a, #00ff88);
+    background-size: 300% 100%;
+    animation: shimmerDark 3s ease-in-out infinite;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-header h3 {
+    color: #f7fafc;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.table-info {
+    display: flex;
+    gap: 20px;
+}
+
+.product-count {
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.product-count span {
+    color: #00ff88;
+    font-weight: 700;
+}
+
+/* Table wrapper et styles */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(45, 55, 72, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+/* En-tête du tableau */
+.products-table thead th {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.2) 0%, rgba(0, 204, 102, 0.3) 100%);
+    color: #f7fafc;
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+    position: relative;
+}
+
+.products-table thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.products-table thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+/* Colonnes spécifiques */
+.col-designation {
+    width: 35%;
+}
+
+.col-quantity {
+    width: 15%;
+    text-align: center;
+}
+
+.col-price {
+    width: 20%;
+    text-align: right;
+}
+
+.col-amount {
+    width: 20%;
+    text-align: right;
+}
+
+.col-actions {
+    width: 10%;
+    text-align: center;
+}
+
+/* Corps du tableau */
+.products-table tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.products-table tbody tr:nth-child(even) {
+    background: rgba(45, 55, 72, 0.4);
+}
+
+.products-table tbody tr:nth-child(odd) {
+    background: rgba(45, 55, 72, 0.2);
+}
+
+.products-table tbody tr:hover {
+    background: rgba(0, 255, 136, 0.08);
+    transform: translateX(3px);
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.1);
+}
+
+.products-table tbody td {
+    padding: 12px;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+}
+
+/* État vide */
+.empty-row {
+    background: rgba(45, 55, 72, 0.3) !important;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    opacity: 0.6;
+}
+
+.empty-state p {
+    color: #cbd5e0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.empty-state small {
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+/* Pied du tableau - Totaux */
+.products-table tfoot .totals-row {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.2) 100%);
+    border-top: 2px solid rgba(255, 193, 7, 0.4);
+}
+
+.products-table tfoot td {
+    padding: 15px 12px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.total-label {
+    color: #ffc107;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.total-quantity,
+.total-amount {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.total-separator {
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* Section statistiques */
+.stats-section {
+    margin-top: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #00ff88, #00cc66);
+    transition: width 0.3s ease;
+}
+
+.stat-card:hover::before {
+    width: 100%;
+    opacity: 0.05;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    background: rgba(0, 255, 136, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-label {
+    color: #cbd5e0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    color: #f7fafc;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 255, 136, 0.2);
+}
+
+/* Section graphiques */
+.charts-section {
+    margin-top: 10px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+}
+
+.chart-container {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00ff88, #00cc66, #004d1a, #00ff88);
+    background-size: 300% 100%;
+    animation: shimmerDark 3s ease-in-out infinite;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chart-header h4 {
+    color: #f7fafc;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chart-toggle {
+    display: flex;
+    background: rgba(45, 55, 72, 0.6);
+    border-radius: 8px;
+    padding: 4px;
+    gap: 2px;
+}
+
+.toggle-btn {
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: #cbd5e0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    box-shadow: 0 2px 10px rgba(0, 255, 136, 0.2);
+}
+
+.toggle-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+}
+
+.chart-wrapper {
+    height: 300px;
+    position: relative;
+    background: rgba(45, 55, 72, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.chart-wrapper canvas {
+    max-height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .datatable-container {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container .chart-wrapper {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .datatable-container {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .controls-grid {
+        flex-direction: column;
+    }
+
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .stat-icon {
+        font-size: 2rem;
+        padding: 12px;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+
+    .charts-grid {
+        gap: 15px;
+    }
+
+    .chart-container {
+        padding: 20px;
+    }
+
+    .chart-wrapper {
+        height: 200px;
+        padding: 15px;
+    }
+
+    .chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-wrapper {
+        font-size: 0.8rem;
+    }
+
+    .products-table thead th,
+    .products-table tbody td,
+    .products-table tfoot td {
+        padding: 8px 6px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-accent {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+}

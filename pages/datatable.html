@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable - Projet DHTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/datatable.css">
+</head>
+
+<body>
+    <!-- En tête -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">N2MF</div>
+            <div class="devise">CODE4WARD</div>
+        </div>
+        <h1>DataTable - Gestion Produits</h1>
+        <a href="../homepage.html" class="login-btn">Accueil</a>
+    </header>
+
+    <!-- Zone d'affichage -->
+    <div class="container">
+        <nav>
+            <a href="cramer.html">Cramer</a>
+            <a href="image.html">Image</a>
+            <a href="panneau.html">Panneau</a>
+            <a href="datatable.html" class="active">DataTable</a>
+        </nav>
+
+        <main>
+            <div class="datatable-container">
+                <!-- Section contrôles -->
+                <div class="controls-section">
+                    <h2>Gestion des Produits</h2>
+                    <div class="controls-grid">
+                        <button class="btn-primary" id="ajouterProduit">
+                            <span class="btn-icon">+</span>
+                            Ajouter Produit
+                        </button>
+                        <button class="btn-secondary" id="exporterDonnees">
+                            <span class="btn-icon">📊</span>
+                            Exporter
+                        </button>
+                        <button class="btn-accent" id="actualiserGraphique">
+                            <span class="btn-icon">🔄</span>
+                            Actualiser
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section tableau -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Liste des Produits</h3>
+                        <div class="table-info">
+                            <span class="product-count">Produits: <span id="totalProduits">0</span></span>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="products-table" id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th class="col-designation">Désignation</th>
+                                    <th class="col-quantity">Quantité</th>
+                                    <th class="col-price">Prix Unitaire (Ar)</th>
+                                    <th class="col-amount">Montant (Ar)</th>
+                                    <th class="col-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- Les données seront insérées ici par JavaScript -->
+                                <tr class="empty-row">
+                                    <td colspan="5" class="empty-message">
+                                        <div class="empty-state">
+                                            <span class="empty-icon">📦</span>
+                                            <p>Aucun produit enregistré</p>
+                                            <small>Cliquez sur "Ajouter Produit" pour commencer</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="totals-row">
+                                    <td class="total-label">TOTAUX</td>
+                                    <td class="total-quantity" id="totalQuantite">0</td>
+                                    <td class="total-separator">—</td>
+                                    <td class="total-amount" id="totalMontant">0.00 Ar</td>
+                                    <td class="total-actions"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Section statistiques -->
+                <div class="stats-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Prix Moyen</div>
+                                <div class="stat-value" id="prixMoyen">0.00 Ar</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📉</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Prix Minimal</div>
+                                <div class="stat-value" id="prixMin">0.00 Ar</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📈</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Prix Maximal</div>
+                                <div class="stat-value" id="prixMax">0.00 Ar</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Valeur Stock</div>
+                                <div class="stat-value" id="valeurStock">0.00 Ar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section graphiques -->
+                <div class="charts-section">
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h4>Répartition par Quantité</h4>
+                                <div class="chart-toggle">
+                                    <button class="toggle-btn active" data-chart="bar">Barres</button>
+                                    <button class="toggle-btn" data-chart="doughnut">Camembert</button>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="quantityChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h4>Répartition par Montant</h4>
+                                <div class="chart-toggle">
+                                    <button class="toggle-btn active" data-chart="bar">Barres</button>
+                                    <button class="toggle-btn" data-chart="pie">Secteurs</button>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="amountChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-title">AUTEURS</div>
+        <div class="team-info">
+            <div class="member">
+                <div class="member-name">NIEKENA</div>
+                <div class="member-matricule">3734</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@niekena.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">NAJORO</div>
+                <div class="member-matricule">3674</div>
+                <div class="member-role"> Designer UI/UX</div>
+                <div class="member-facebook">@najoro.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">MALALA</div>
+                <div class="member-matricule">3735</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@malala.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">FABRICE</div>
+                <div class="member-matricule">3649</div>
+                <div class="member-role">Chef de projet</div>
+                <div class="member-facebook">@fabrice.fb</div>
+            </div>
+        </div>
+        <div class="copyright">© 2025</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/datatable.js"></script>
+    <!-- Chart.js CDN pour les graphiques -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</body>
+
+</html>

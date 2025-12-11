@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résolution Cramer - Projet DHTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cramer.css">
+</head>
+
+<body>
+    <!-- En tête -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">N2MF</div>
+            <div class="devise">CODE4WARD</div>
+        </div>
+        <h1>Méthode de Cramer</h1>
+        <a href="../homepage.html" class="login-btn">Accueil</a>
+    </header>
+
+    <!-- Zone d'affichage -->
+    <div class="container">
+        <nav>
+            <a href="cramer.html" class="active">Cramer</a>
+            <a href="image.html">Image</a>
+            <a href="panneau.html">Panneau</a>
+            <a href="datatable.html">DataTable</a>
+        </nav>
+
+        <main>
+            <div id="cramer-container">
+                <!-- Section d'explication -->
+                <div class="explanation-card">
+                    <h2>Résolution de système 3×3</h2>
+                    <p>Entrez les coefficients de votre système d'équations linéaires :</p>
+                    <div class="equation-display">
+                        <span class="equation-line">a₁₁x₁ + a₁₂x₂ + a₁₃x₃ = b₁</span>
+                        <span class="equation-line">a₂₁x₁ + a₂₂x₂ + a₂₃x₃ = b₂</span>
+                        <span class="equation-line">a₃₁x₁ + a₃₂x₂ + a₃₃x₃ = b₃</span>
+                    </div>
+                </div>
+
+                <!-- Formulaire de saisie -->
+                <div class="input-section">
+                    <div class="matrix-container">
+                        <h3>Matrice des coefficients</h3>
+                        <div class="matrix-grid">
+                            <!-- Ligne 1 -->
+                            <div class="matrix-row">
+                                <div class="input-group">
+                                    <label>a₁₁</label>
+                                    <input type="number" id="a11" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₁ +</span>
+                                <div class="input-group">
+                                    <label>a₁₂</label>
+                                    <input type="number" id="a12" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₂ +</span>
+                                <div class="input-group">
+                                    <label>a₁₃</label>
+                                    <input type="number" id="a13" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₃ =</span>
+                                <div class="input-group">
+                                    <label>b₁</label>
+                                    <input type="number" id="b1" step="any" placeholder="0">
+                                </div>
+                            </div>
+
+                            <!-- Ligne 2 -->
+                            <div class="matrix-row">
+                                <div class="input-group">
+                                    <label>a₂₁</label>
+                                    <input type="number" id="a21" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₁ +</span>
+                                <div class="input-group">
+                                    <label>a₂₂</label>
+                                    <input type="number" id="a22" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₂ +</span>
+                                <div class="input-group">
+                                    <label>a₂₃</label>
+                                    <input type="number" id="a23" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₃ =</span>
+                                <div class="input-group">
+                                    <label>b₂</label>
+                                    <input type="number" id="b2" step="any" placeholder="0">
+                                </div>
+                            </div>
+
+                            <!-- Ligne 3 -->
+                            <div class="matrix-row">
+                                <div class="input-group">
+                                    <label>a₃₁</label>
+                                    <input type="number" id="a31" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₁ +</span>
+                                <div class="input-group">
+                                    <label>a₃₂</label>
+                                    <input type="number" id="a32" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₂ +</span>
+                                <div class="input-group">
+                                    <label>a₃₃</label>
+                                    <input type="number" id="a33" step="any" placeholder="0">
+                                </div>
+                                <span class="variable">x₃ =</span>
+                                <div class="input-group">
+                                    <label>b₃</label>
+                                    <input type="number" id="b3" step="any" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Boutons d'action -->
+                    <div class="action-buttons">
+                        <button id="solve-btn" class="solve-button">
+                            <span class="button-text">Résoudre le système</span>
+                            <span class="button-icon">🧮</span>
+                        </button>
+                        <button id="clear-btn" class="clear-button">
+                            <span class="button-text">Effacer</span>
+                            <span class="button-icon">🗑️</span>
+                        </button>
+                        <button id="example-btn" class="example-button">
+                            <span class="button-text">Exemple</span>
+                            <span class="button-icon">💡</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Zone de résultats -->
+                <div id="results-section" class="results-hidden">
+                    <h3>Résultats</h3>
+
+                    <!-- Déterminants -->
+                    <div class="determinants-grid">
+                        <div class="det-card">
+                            <h4>Déterminant principal (Δ)</h4>
+                            <div id="det-main" class="det-value">0</div>
+                        </div>
+                        <div class="det-card">
+                            <h4>Δx</h4>
+                            <div id="det-x" class="det-value">0</div>
+                        </div>
+                        <div class="det-card">
+                            <h4>Δy</h4>
+                            <div id="det-y" class="det-value">0</div>
+                        </div>
+                        <div class="det-card">
+                            <h4>Δz</h4>
+                            <div id="det-z" class="det-value">0</div>
+                        </div>
+                    </div>
+
+                    <!-- Solutions finales -->
+                    <div class="solutions-grid">
+                        <div class="solution-card">
+                            <h4>x₁</h4>
+                            <div id="solution-x1" class="solution-value">0</div>
+                        </div>
+                        <div class="solution-card">
+                            <h4>x₂</h4>
+                            <div id="solution-x2" class="solution-value">0</div>
+                        </div>
+                        <div class="solution-card">
+                            <h4>x₃</h4>
+                            <div id="solution-x3" class="solution-value">0</div>
+                        </div>
+                    </div>
+
+                    <!-- Messages d'état -->
+                    <div id="status-message" class="status-message"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-title">AUTEURS</div>
+        <div class="team-info">
+            <div class="member">
+                <div class="member-name">NIEKENA</div>
+                <div class="member-matricule">3734</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@niekena.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">NAJORO</div>
+                <div class="member-matricule">3674</div>
+                <div class="member-role"> Designer UI/UX</div>
+                <div class="member-facebook">@najoro.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">MALALA</div>
+                <div class="member-matricule">3735</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@malala.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">FABRICE</div>
+                <div class="member-matricule">3649</div>
+                <div class="member-role">Chef de projet</div>
+                <div class="member-facebook">@fabrice.fb</div>
+            </div>
+        </div>
+        <div class="copyright">© 2025</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/cramer.js"></script>
+
+</body>
+
+</html>

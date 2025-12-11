@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panneau Publicitaire - Projet DHTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/panneau.css">
+</head>
+
+<body>
+    <!-- En tête -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">N2MF</div>
+            <div class="devise">CODE4WARD</div>
+        </div>
+        <h1>Panneau Publicitaire</h1>
+        <a href="../homepage.html" class="login-btn">Acceuil</a>
+    </header>
+
+    <!-- Zone d'affichage -->
+    <div class="container">
+        <nav>
+            <a href="cramer.html">Cramer</a>
+            <a href="image.html">Image</a>
+            <a href="panneau.html" class="active">Panneau</a>
+            <a href="datatable.html">DataTable</a>
+        </nav>
+
+        <main>
+            <div id="affichage">
+                <!-- Panneau publicitaire principal -->
+                <div class="panneau-container">
+                    <!-- Couche de fond avec particules -->
+                    <div class="panneau-background">
+                        <div class="particles"></div>
+                    </div>
+
+                    <!-- Couches rotatives -->
+                    <div class="panneau-layers">
+                        <!-- Couche 1 -->
+                        <div class="layer layer-1">
+                            <div class="ad-content">
+                                <div class="ad-icon">🚀</div>
+                                <h2>Innovation Tech</h2>
+                                <p>Découvrez l'avenir de la programmation</p>
+                                <div class="ad-badge">NOUVEAU</div>
+                            </div>
+                        </div>
+
+                        <!-- Couche 2 -->
+                        <div class="layer layer-2">
+                            <div class="ad-content">
+                                <div class="ad-icon">💻</div>
+                                <h2>Code Premium</h2>
+                                <p>Des solutions sur mesure pour vos projets</p>
+                                <div class="ad-badge">PRO</div>
+                            </div>
+                        </div>
+
+                        <!-- Couche 3 -->
+                        <div class="layer layer-3">
+                            <div class="ad-content">
+                                <div class="ad-icon">⚡</div>
+                                <h2>Performance Max</h2>
+                                <p>Optimisation et vitesse garanties</p>
+                                <div class="ad-badge">RAPIDE</div>
+                            </div>
+                        </div>
+
+                        <!-- Couche 4 -->
+                        <div class="layer layer-4">
+                            <div class="ad-content">
+                                <div class="ad-icon">🎯</div>
+                                <h2>Solutions Smart</h2>
+                                <p>Intelligence artificielle intégrée</p>
+                                <div class="ad-badge">IA</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indicateurs de progression -->
+                    <div class="panneau-indicators">
+                        <div class="indicator active"></div>
+                        <div class="indicator"></div>
+                        <div class="indicator"></div>
+                        <div class="indicator"></div>
+                    </div>
+
+                    <!-- Bordure animée -->
+                    <div class="panneau-border">
+                        <div class="border-corner top-left"></div>
+                        <div class="border-corner top-right"></div>
+                        <div class="border-corner bottom-left"></div>
+                        <div class="border-corner bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-title">AUTEURS</div>
+        <div class="team-info">
+            <div class="member">
+                <div class="member-name">NIEKENA</div>
+                <div class="member-matricule">3734</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@niekena.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">NAJORO</div>
+                <div class="member-matricule">3674</div>
+                <div class="member-role"> Designer UI/UX</div>
+                <div class="member-facebook">@najoro.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">MALALA</div>
+                <div class="member-matricule">3735</div>
+                <div class="member-role">Développeuse Web</div>
+                <div class="member-facebook">@malala.fb</div>
+            </div>
+            <div class="member">
+                <div class="member-name">FABRICE</div>
+                <div class="member-matricule">3649</div>
+                <div class="member-role">Chef de projet</div>
+                <div class="member-facebook">@fabrice.fb</div>
+            </div>
+        </div>
+        <div class="copyright">© 2025</div>
+    </footer>
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/panneau.js"></script>
+
+</body>
+
+</html>
