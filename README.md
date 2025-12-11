@@ -59,7 +59,7 @@ Ce projet est une **application web interactive** développée en HTML, CSS et J
 ```
 projet-dhtml/
 │
-├── homepage.html               # Page d'accueil principale
+├── index.html                  # Page d'accueil principale
 │
 ├── css/
 │   ├── style.css               # Styles principaux
